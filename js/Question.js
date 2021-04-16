@@ -1,9 +1,11 @@
 class Question {
-  constructor(input, method, output, choices) {
+  constructor(input, method, output, choices, queried, correct) {
     this.input = input;
     this.method = method;
     this.output = output;
     this.choices = choices;
+    this.queried = queried;
+    this.correct = correct;
   }
   display(input, method, output, choices) {
     input.innerText = this.input;

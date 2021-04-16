@@ -36,10 +36,6 @@ const array = [
   {
     name : 'otter',
     size : 'medium'
-  },
-  {
-    name : 'beaver',
-    size : 'medium'
   }
 ];
 
