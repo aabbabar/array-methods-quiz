@@ -8,6 +8,7 @@ const [ start, instructions, quiz, results ] = pages;
 const [ input, method, output ] = document.querySelectorAll('.question code');
 const choices = document.querySelectorAll('.answer-choice');
 const totalScore = document.querySelector('.total-score');
+const timer = document.querySelector('.timer');
 choices.forEach((choice) => choice.addEventListener('click', () => selectChoice(choice)));
 
 const startButton = document.querySelector('.start-button');
@@ -23,8 +24,8 @@ let currentQuestion = 0;
 let selectedChoice = -1;
 let correctAnswers = 0;
 let choicesActive = false;
-const answers = []; //necessary to store?
-console.log(choices);
+let countdownTimer;
+let count;
 
 function showInstructions() {
   start.style.display = 'none';
@@ -37,6 +38,12 @@ function startQuiz() {
   loadNextQuestion();
 }
 
+function showResults() {
+  quiz.style.display = 'none';
+  results.style.display = 'flex';
+  totalScore.innerText = correctAnswers;
+}
+
 function selectChoice(choice) {
   if (!choicesActive) return;
   const choiceNum = +choice.id.split('-')[1];
@@ -44,46 +51,48 @@ function selectChoice(choice) {
     choice.classList.add('choice-selected');
     selectedChoice > -1 ? resetSelection() : submitButton.removeAttribute('disabled');
     selectedChoice = choiceNum;
+    console.log(choice);
   }
 }
 
 function submitAnswer() {
-  answers.push(selectedChoice);
   showCorrectAnswer();
   submitButton.removeEventListener('click', submitAnswer);
   submitButton.addEventListener('click', loadNextQuestion);
+  if (submitButton.hasAttribute('disabled')) submitButton.removeAttribute('disabled');
   submitButton.innerText = 'Next';
 }
 
 function showCorrectAnswer() {
+  clearInterval(countdownTimer);
   choicesActive = false;
   if (selectedChoice === questions[currentQuestion].correct) correctAnswers++;
-  else choices[selectedChoice].classList.add('choice-incorrect');
+  else if (selectedChoice > -1) choices[selectedChoice].classList.add('choice-incorrect');
   choices[questions[currentQuestion].correct].classList.add('choice-correct');
 }
 
 function loadNextQuestion() {
   currentQuestion++;
   if (currentQuestion >= questions.length) return showResults();
-  if (selectedChoice > -1) resetSelection();
+  resetSelection();
   submitButton.setAttribute('disabled', '');
   submitButton.removeEventListener('click', loadNextQuestion);
   submitButton.addEventListener('click', submitAnswer);
   submitButton.innerText = 'Submit';
   choicesActive = true;
+  count = 10;
+  countdownTimer = setInterval(tickTimer, 1000);
   questions[currentQuestion].display(input, method, output, choices);
 }
 
-function resetSelection() {
-  choices[selectedChoice].classList.remove('choice-selected');
-  choices.forEach((choice) => choice.classList.remove('choice-correct', 'choice-incorrect'));
-  selectedChoice = -1;
+function tickTimer() {
+  count ? (timer.innerText = --count) : submitAnswer();
 }
 
-function showResults() {
-  quiz.style.display = 'none';
-  results.style.display = 'flex';
-  totalScore.innerText = correctAnswers;
+function resetSelection() {
+  if (selectedChoice > -1) choices[selectedChoice].classList.remove('choice-selected');
+  choices.forEach((choice) => choice.classList.remove('choice-correct', 'choice-incorrect'));
+  selectedChoice = -1;
 }
 
 function resetQuiz() {
