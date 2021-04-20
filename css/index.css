@@ -112,17 +112,22 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  min-height: 6vh;
+  min-height: 7vh;
   width: 100%;
   background-color: indigo;
   margin-bottom: 10px;
 }
 
 .choice-selected {
-  background-color: green;
+  background-color: #019c84;
+}
+
+.choice-correct {
+  background-color: #27b200;
+}
+
+.choice-incorrect {
+  background-color: #b20000;
 }
 
 .question {

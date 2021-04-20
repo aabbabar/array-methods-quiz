@@ -57,15 +57,23 @@ body {
 
 .answer-choice {
   @include flexCenter();
-  align-items: flex-start;
-  min-height: 6vh;
+  // align-items: flex-start;
+  min-height: 7vh;
   width: 100%;
   background-color: indigo;
   margin-bottom: 10px;
 }
 
 .choice-selected {
-  background-color: green;
+  background-color: rgb(1, 156, 132);
+}
+
+.choice-correct {
+  background-color: rgb(39, 178, 0);
+}
+
+.choice-incorrect {
+  background-color: rgb(178, 0, 0);
 }
 
 .question {

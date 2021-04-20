@@ -47,13 +47,13 @@ const questionData = [
       `prices.reduce((avg, price, index) => { <br>
         &nbsp; return (avg * index + price) / (index + 1);<br>
        }, 0);`,
-      `prices.reduce((avg, price, index) => {<br>
+      `prices.reduce((avg, price, index) => {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
         &nbsp; return (avg + price) / index;<br>
       }, 0);`,
-      `prices.reduce((avg, price, index) => {<br>
+      `prices.reduce((avg, price, index) => {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
         &nbsp; return price + ((avg * index) / index);<br>
       }, 0);`,
-      `prices.reduce((avg, price, index) => {<br>
+      `prices.reduce((avg, price, index) => {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
         &nbsp; return (avg * index) / (price * index);<br>
       }, 0);`
     ],
