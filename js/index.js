@@ -20,9 +20,11 @@ submitButton.addEventListener('click', submitAnswer);
 resetButton.addEventListener('click', resetQuiz);
 
 let currentQuestion = 0;
-let selectedChoice = 0;
+let selectedChoice = -1;
 let correctAnswers = 0;
 const answers = []; //necessary to store?
+
+console.log(choices);
 
 function showInstructions() {
   start.style.display = 'none';
@@ -36,10 +38,12 @@ function startQuiz() {
 }
 
 function selectChoice(choice) {
-  choice.classList.add('choice-selected');
-  if (selectedChoice) resetSelection();
-  else submitButton.removeAttribute('disabled');
-  selectedChoice = +choice.id.split('-')[1];
+  const choiceNum = +choice.id.split('-')[1];
+  if (choiceNum !== selectedChoice) {
+    choice.classList.add('choice-selected');
+    selectedChoice > -1 ? resetSelection() : submitButton.removeAttribute('disabled');
+    selectedChoice = choiceNum;
+  }
 }
 
 function submitAnswer() {
@@ -51,14 +55,14 @@ function submitAnswer() {
 
 function loadNextQuestion() {
   if (currentQuestion >= questions.length) return showResults();
-  resetSelection();
+  if (selectedChoice > 0) resetSelection();
   submitButton.setAttribute('disabled', '');
   questions[currentQuestion].display(input, method, output, choices);
 }
 
 function resetSelection() {
   choices[selectedChoice].classList.remove('choice-selected');
-  selectedChoice = 0;
+  selectedChoice = -1;
 }
 
 function showResults() {
