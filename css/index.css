@@ -3,6 +3,7 @@
   padding: 0;
   border: border-box;
   text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 body {
@@ -20,7 +21,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100vh;
-  background-color: #626262;
+  background: -webkit-gradient(linear, left top, right bottom, from(#00ffae), to(cyan));
+  background: linear-gradient(to right bottom, #00ffae, cyan);
 }
 
 .container {
@@ -37,10 +39,15 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 2px solid black;
-  background-color: grey;
+  border: 4px solid black;
+  border-radius: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e7e6e6));
+  background: linear-gradient(to bottom, white, #e7e6e6);
+  -webkit-box-shadow: 20px 20px 30px rgba(81, 81, 81, 0.8);
+          box-shadow: 20px 20px 30px rgba(81, 81, 81, 0.8);
   padding: 0px 30px;
-  max-width: 900px;
+  max-width: 720px;
+  width: 80%;
 }
 
 .page {
@@ -57,6 +64,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
   padding: 20px;
 }
 
@@ -113,21 +121,33 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 7vh;
-  width: 100%;
-  background-color: indigo;
-  margin-bottom: 10px;
+  width: 80%;
+  background-color: #c1ffe6;
+  border: 2px solid black;
+  -webkit-box-shadow: 3px 3px 3px #565656;
+          box-shadow: 3px 3px 3px #565656;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  -webkit-transition: 0.12s;
+  transition: 0.12s;
 }
 
 .choice-selected {
-  background-color: #019c84;
+  background-color: #fcffa7;
+  -webkit-transform: translate(-2px, -2px);
+          transform: translate(-2px, -2px);
 }
 
 .choice-correct {
-  background-color: #27b200;
+  background-color: #91ff73;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
 }
 
 .choice-incorrect {
-  background-color: #b20000;
+  background-color: #fe8e8e;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
 }
 
 .question {
@@ -153,7 +173,7 @@ body {
 .question-method,
 .question-output {
   margin: 4px 0px;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
 }
 
 .queried {
@@ -161,9 +181,20 @@ body {
 }
 
 code {
-  background-color: #a8a8a8;
+  background-color: rgba(208, 208, 208, 0);
   padding: 5px;
-  font-size: 1rem;
-  text-align: left;
+  font-size: 1.3rem;
+  letter-spacing: 0.02rem;
+}
+
+@media (max-width: 628px) {
+  .container {
+    width: 99.5vw;
+    padding: 0;
+    margin: 0;
+  }
+  .page {
+    padding: 0;
+  }
 }
 /*# sourceMappingURL=index.css.map */

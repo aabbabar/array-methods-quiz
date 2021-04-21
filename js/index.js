@@ -20,7 +20,7 @@ beginButton.addEventListener('click', startQuiz);
 submitButton.addEventListener('click', loadNextQuestion);
 resetButton.addEventListener('click', resetQuiz);
 
-let currentQuestion = 0;
+let currentQuestion = -1;
 let selectedChoice = -1;
 let correctAnswers = 0;
 let choicesActive = false;
@@ -81,6 +81,7 @@ function loadNextQuestion() {
   submitButton.innerText = 'Submit';
   choicesActive = true;
   count = 10;
+  timer.innerText = '10';
   countdownTimer = setInterval(tickTimer, 1000);
   questions[currentQuestion].display(input, method, output, choices);
 }
@@ -102,6 +103,3 @@ function resetQuiz() {
   results.style.display = 'none';
   instructions.style.display = 'flex';
 }
-
-showInstructions();
-startQuiz();
