@@ -45,7 +45,6 @@ body {
   background: linear-gradient(to bottom, white, #e7e6e6);
   -webkit-box-shadow: 20px 20px 30px rgba(81, 81, 81, 0.8);
           box-shadow: 20px 20px 30px rgba(81, 81, 81, 0.8);
-  padding: 0px 30px;
   max-width: 720px;
   width: 80%;
 }
@@ -65,7 +64,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  padding: 20px;
 }
 
 .page button {
@@ -87,6 +85,44 @@ body {
 
 .results {
   display: none;
+}
+
+.question-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  padding-bottom: 5px;
+}
+
+.timer-bar {
+  height: 4px;
+  background-color: #76fccb;
+  width: 0%;
+  margin-top: -10px;
+  -webkit-transition: 1s linear;
+  transition: 1s linear;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.timer {
+  border: 2px solid black;
+  padding: 3px;
 }
 
 .answer-choices {
@@ -167,6 +203,7 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  padding: 0px 20px;
 }
 
 .question-input,

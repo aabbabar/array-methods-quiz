@@ -26,7 +26,7 @@ body {
   border-radius: 30px;
   background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(231, 230, 230));
   box-shadow: 20px 20px 30px rgba(81, 81, 81, 0.8);
-  padding: 0px 30px;
+  // padding: 0px 30px;
   max-width: 720px;
   width: 80%;
   // min-width: 720px;
@@ -35,7 +35,7 @@ body {
 .page {
   @include flexCenter();
   width: 100%;
-  padding: 20px;
+  // padding: 20px;
 
   button {
     margin-top: 20px;
@@ -55,6 +55,32 @@ body {
 
 .results {
   display: none;
+}
+
+.question-info {
+  @include flexCenter();
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  padding-bottom: 5px;
+}
+
+.question-title {
+  // align-self: center;
+}
+
+.timer-bar {
+  height: 4px;
+  background-color: rgb(118, 252, 203);
+  width: 0%;
+  margin-top: -10px;
+  transition: 1s linear;
+  align-self: flex-start;
+}
+
+.timer {
+  border: 2px solid black;
+  padding: 3px;
 }
 
 .answer-choices {
@@ -93,6 +119,7 @@ body {
 .question {
   @include flexCenter();
   justify-content: space-evenly;
+  padding: 0px 20px;
 }
 
 .question-input,

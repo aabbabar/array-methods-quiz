@@ -8,7 +8,8 @@ const [ start, instructions, quiz, results ] = pages;
 const [ input, method, output ] = document.querySelectorAll('.question code');
 const choices = document.querySelectorAll('.answer-choice');
 const totalScore = document.querySelector('.total-score');
-const timer = document.querySelector('.timer');
+const timer = document.querySelector('.timer-seconds');
+const timerBar = document.querySelector('.timer-bar');
 choices.forEach((choice) => choice.addEventListener('click', () => selectChoice(choice)));
 
 const startButton = document.querySelector('.start-button');
@@ -61,6 +62,7 @@ function submitAnswer() {
   submitButton.addEventListener('click', loadNextQuestion);
   if (submitButton.hasAttribute('disabled')) submitButton.removeAttribute('disabled');
   submitButton.innerText = 'Next';
+  count = 10;
 }
 
 function showCorrectAnswer() {
@@ -88,6 +90,8 @@ function loadNextQuestion() {
 
 function tickTimer() {
   count ? (timer.innerText = --count) : submitAnswer();
+  const timerWidth = (10 - count) * 10;
+  timerBar.style.width = `${timerWidth}%`;
 }
 
 function resetSelection() {
@@ -103,3 +107,6 @@ function resetQuiz() {
   results.style.display = 'none';
   instructions.style.display = 'flex';
 }
+
+showInstructions();
+startQuiz();
