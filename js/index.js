@@ -10,6 +10,7 @@ const choices = document.querySelectorAll('.answer-choice');
 const totalScore = document.querySelector('.total-score');
 const timer = document.querySelector('.timer-seconds');
 const timerBar = document.querySelector('.timer-bar');
+const questionNumber = document.querySelector('.question-number');
 choices.forEach((choice) => choice.addEventListener('click', () => selectChoice(choice)));
 
 const startButton = document.querySelector('.start-button');
@@ -77,6 +78,7 @@ function loadNextQuestion() {
   currentQuestion++;
   if (currentQuestion >= questions.length) return showResults();
   resetSelection();
+  questionNumber.innerText = currentQuestion + 1;
   submitButton.setAttribute('disabled', '');
   submitButton.removeEventListener('click', loadNextQuestion);
   submitButton.addEventListener('click', submitAnswer);
@@ -108,5 +110,5 @@ function resetQuiz() {
   instructions.style.display = 'flex';
 }
 
-showInstructions();
-startQuiz();
+// showInstructions();
+// startQuiz();
