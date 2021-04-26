@@ -72,6 +72,11 @@ function showCorrectAnswer() {
   if (selectedChoice === questions[currentQuestion].correct) correctAnswers++;
   else if (selectedChoice > -1) choices[selectedChoice].classList.add('choice-incorrect');
   choices[questions[currentQuestion].correct].classList.add('choice-correct');
+  choices.forEach((choice) => {
+    if (!choice.classList.contains('choice-incorrect') && !choice.classList.contains('choice-correct')) {
+      choice.classList.add('choice-disabled');
+    }
+  });
 }
 
 function loadNextQuestion() {
@@ -98,7 +103,7 @@ function tickTimer() {
 
 function resetSelection() {
   if (selectedChoice > -1) choices[selectedChoice].classList.remove('choice-selected');
-  choices.forEach((choice) => choice.classList.remove('choice-correct', 'choice-incorrect'));
+  choices.forEach((choice) => choice.classList.remove('choice-correct', 'choice-incorrect', 'choice-disabled'));
   selectedChoice = -1;
 }
 

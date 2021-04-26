@@ -72,7 +72,7 @@ body {
   height: 4px;
   background-color: rgb(118, 252, 203);
   width: 0%;
-  margin-top: -10px;
+  // margin-top: -10px;
   transition: 1s linear;
   align-self: flex-start;
 }
@@ -99,21 +99,43 @@ body {
   border-radius: 10px;
   margin-bottom: 15px;
   transition: 0.12s;
+  &:hover {
+    background-color: rgb(251, 255, 169);
+  }
 }
 
 .choice-selected {
   background-color: rgb(252, 255, 167);
   transform: translate(-2px, -2px);
+  &:hover {
+    background-color: rgb(252, 255, 167);
+  }
 }
 
 .choice-correct {
   background-color: rgb(145, 255, 115);
   transform: translate(0px, 0px);
+  &:hover {
+    background-color: rgb(145, 255, 115);
+  }
 }
 
 .choice-incorrect {
   background-color: rgb(254, 142, 142);
   transform: translate(0px, 0px);
+  &:hover {
+    background-color: rgb(254, 142, 142);
+  }
+}
+
+.choice-disabled {
+  background-color: rgb(222, 220, 220);
+  color: rgb(111, 111, 111);
+  border-color: rgb(81, 81, 81);
+  transform: translate(0px, 0px);
+  &:hover {
+    background-color: rgb(198, 198, 198);
+  }
 }
 
 .question {
