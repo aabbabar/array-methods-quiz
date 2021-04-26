@@ -27,7 +27,8 @@ let selectedChoice = -1;
 let correctAnswers = 0;
 let choicesActive = false;
 let countdownTimer;
-let count;
+const maxCount = 40;
+let count = maxCount;
 
 function showInstructions() {
   start.style.display = 'none';
@@ -59,15 +60,14 @@ function selectChoice(choice) {
 
 function submitAnswer() {
   showCorrectAnswer();
+  resetTimer();
   submitButton.removeEventListener('click', submitAnswer);
   submitButton.addEventListener('click', loadNextQuestion);
   if (submitButton.hasAttribute('disabled')) submitButton.removeAttribute('disabled');
   submitButton.innerText = 'Next';
-  count = 10;
 }
 
 function showCorrectAnswer() {
-  clearInterval(countdownTimer);
   choicesActive = false;
   if (selectedChoice === questions[currentQuestion].correct) correctAnswers++;
   else if (selectedChoice > -1) choices[selectedChoice].classList.add('choice-incorrect');
@@ -89,16 +89,21 @@ function loadNextQuestion() {
   submitButton.addEventListener('click', submitAnswer);
   submitButton.innerText = 'Submit';
   choicesActive = true;
-  count = 10;
-  timer.innerText = '10';
+  timer.innerText = count;
   countdownTimer = setInterval(tickTimer, 1000);
   questions[currentQuestion].display(input, method, output, choices);
 }
 
 function tickTimer() {
   count ? (timer.innerText = --count) : submitAnswer();
-  const timerWidth = (10 - count) * 10;
+  const timerWidth = (maxCount - count) * (100 / maxCount);
   timerBar.style.width = `${timerWidth}%`;
+}
+
+function resetTimer() {
+  clearInterval(countdownTimer);
+  count = maxCount;
+  timerBar.style.width = '0%';
 }
 
 function resetSelection() {
@@ -115,5 +120,5 @@ function resetQuiz() {
   instructions.style.display = 'flex';
 }
 
-// showInstructions();
-// startQuiz();
+showInstructions();
+startQuiz();

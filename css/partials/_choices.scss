@@ -1,0 +1,36 @@
+.answer-choices {
+  @include flexCenter(column);
+  width: 100%;
+}
+
+.answer-choice {
+  @include flexCenter(column);
+  @include border(2px, 10px, black);
+  background-color: $choice-default;
+  min-height: 7vh;
+  width: 80%;
+  margin-bottom: 10px;
+  box-shadow: 3px 3px 3px $shadow;
+  transition: 0.12s;
+  &:hover {
+    background-color: $choice-selected;
+  }
+}
+
+.choice-selected {
+  @include choice($choice-selected, -2px);
+}
+
+.choice-correct {
+  @include choice($choice-correct, 0px);
+}
+
+.choice-incorrect {
+  @include choice($choice-incorrect, 0px);
+}
+
+.choice-disabled {
+  @include choice($choice-disabled, 0px);
+  color: $shadow;
+  border-color: $shadow;
+}

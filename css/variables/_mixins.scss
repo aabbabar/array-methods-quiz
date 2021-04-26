@@ -1,0 +1,19 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin choice($background-color, $translation) {
+  background-color: $background-color;
+  transform: translate($translation, $translation);
+  &:hover {
+    background-color: $background-color;
+  }
+}
+
+@mixin border($width, $radius, $color) {
+  border: $width solid $color;
+  border-radius: $radius;
+}

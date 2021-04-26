@@ -40,17 +40,18 @@ const questionData = [
   },
   {
     input   : `const input = [1, 2, 2, 2, 3, 4, 4, 5]`,
-    method  : `const output = input.reduce((obj, num) => {
-                obj[num] = ++obj[num] || 1;
-                return obj;
-              }, {});`,
+    method  : `const output = ${spacing(25)}<br><br>
+                    input.reduce((obj, num) => {<br>
+                    ${spacing(4)}obj[num] = ++obj[num] || 1;<br>
+                    return obj;${spacing(12)}<br>
+                  }, {});${spacing(21)}`,
     output  : `output = ?`,
     queried : 'output',
     choices : [
       `[ 1, 2, 3, 4, 5 ]`,
       `{'1': [1, 3, 5], '2': [4], '3': [2]}`,
       `{'1': 1, '2': 3, '3': 1, '4': 2, '5': 1}`,
-      `[ 'insert real choice here' ]`
+      `[ [1, 3, 5], [4], [2] ]`
     ],
     correct : 2
   },
@@ -89,5 +90,11 @@ const questionData = [
     correct : 1
   }
 ];
+
+function spacing(n) {
+  let res = ``;
+  for (let i = 0; i < n; i++) res += `&nbsp;`;
+  return res;
+}
 
 export { questionData };

@@ -1,0 +1,29 @@
+.question {
+  @include flexCenter(column);
+  justify-content: space-evenly;
+  padding: 10px 20px 20px;
+}
+
+.question-input,
+.question-method,
+.question-output {
+  margin: 4px 0px;
+  font-size: 1.1rem;
+}
+
+.question-info {
+  @include flexCenter(row);
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.question-title {
+  @include border(3px, 10px, black);
+  padding: 8px;
+}
+
+.queried {
+  font-weight: 600;
+  @include border(2px, 10px, black);
+}

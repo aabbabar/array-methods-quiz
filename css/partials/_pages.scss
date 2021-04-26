@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: border-box;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  color: $textColor;
+}
+
+body {
+  @include flexCenter(column);
+  height: 100vh;
+  background: linear-gradient(to right bottom, $primary, $secondary);
+}
+
+.container {
+  @include flexCenter(column);
+  @include border(4px, 30px, black);
+  background: linear-gradient(to bottom, white, $cardGrey);
+  box-shadow: 20px 20px 30px $shadow;
+  max-width: 750px;
+  width: 80%;
+}
+
+.page {
+  @include flexCenter(column);
+  display: none;
+  width: 100%;
+  padding: 20px;
+}
+
+.start {
+  display: flex;
+}
+
+.quiz {
+  justify-content: space-evenly;
+  min-height: 80vh;
+}
+
+code {
+  background: transparent;
+  font-size: 1.3rem;
+  padding: 8px;
+}

@@ -1,0 +1,12 @@
+.timer-bar {
+  background-color: $primary;
+  align-self: flex-start;
+  height: 4px;
+  width: 0%;
+  transition: 1s linear;
+}
+
+.timer {
+  @include border(2px, 10px, black);
+  padding: 8px;
+}
