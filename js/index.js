@@ -111,7 +111,7 @@ function resetSelection() {
 
 function resetQuiz() {
   resetSelection();
-  currentQuestion = 0;
+  currentQuestion = -1;
   correctAnswers = 0;
   results.style.display = 'none';
   instructions.style.display = 'flex';
