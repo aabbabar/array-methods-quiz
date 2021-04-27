@@ -1,12 +1,12 @@
 @media (max-width: 576px) {
   .container {
-    width: 98vw;
+    width: 98.2vw;
   }
   .page {
     padding: 10px;
   }
   code {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .question-input,
   .question-method,
@@ -34,6 +34,7 @@
     font-size: 1rem;
   }
 }
+
 @media (min-width: 768px) {
   .container {
     width: 90%;

@@ -23,6 +23,9 @@
 
 .choice-correct {
   @include choice($choice-correct, 0px);
+  code {
+    font-weight: 600;
+  }
 }
 
 .choice-incorrect {
@@ -31,6 +34,8 @@
 
 .choice-disabled {
   @include choice($choice-disabled, 0px);
-  color: $shadow;
   border-color: $shadow;
+  code {
+    color: $shadow;
+  }
 }

@@ -37,6 +37,12 @@ body {
   p {
     margin-bottom: 20px;
   }
+  a {
+    margin-bottom: 5px;
+    &:hover {
+      background-color: $choice-selected;
+    }
+  }
 }
 
 .quiz {

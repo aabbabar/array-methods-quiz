@@ -79,6 +79,14 @@ body {
   margin-bottom: 20px;
 }
 
+.instructions a {
+  margin-bottom: 5px;
+}
+
+.instructions a:hover {
+  background-color: #fcffa7;
+}
+
 .quiz {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -226,35 +234,42 @@ code {
 }
 
 .choice-correct {
-  background-color: #91ff73;
+  background-color: #aefe98;
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
 }
 
 .choice-correct:hover {
-  background-color: #91ff73;
+  background-color: #aefe98;
+}
+
+.choice-correct code {
+  font-weight: 600;
 }
 
 .choice-incorrect {
-  background-color: #fe8e8e;
+  background-color: #fb9696;
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
 }
 
 .choice-incorrect:hover {
-  background-color: #fe8e8e;
+  background-color: #fb9696;
 }
 
 .choice-disabled {
   background-color: #dedcdc;
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
-  color: rgba(81, 81, 81, 0.8);
   border-color: rgba(81, 81, 81, 0.8);
 }
 
 .choice-disabled:hover {
   background-color: #dedcdc;
+}
+
+.choice-disabled code {
+  color: rgba(81, 81, 81, 0.8);
 }
 
 button {
@@ -280,13 +295,13 @@ button:enabled:hover {
 
 @media (max-width: 576px) {
   .container {
-    width: 98vw;
+    width: 98.2vw;
   }
   .page {
     padding: 10px;
   }
   code {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .question-input,
   .question-method,
