@@ -1,7 +1,4 @@
-import { questions } from './questions.js';
-
-console.log(questions);
-console.log('script connected');
+import { questions } from './questions/questions.js';
 
 const pages = document.querySelectorAll('.page');
 const [ start, instructions, quiz, results ] = pages;
@@ -27,7 +24,7 @@ let selectedChoice = -1;
 let correctAnswers = 0;
 let choicesActive = false;
 let countdownTimer;
-const maxCount = 40;
+const maxCount = 60;
 let count = maxCount;
 
 function showInstructions() {
@@ -119,6 +116,3 @@ function resetQuiz() {
   results.style.display = 'none';
   instructions.style.display = 'flex';
 }
-
-showInstructions();
-startQuiz();

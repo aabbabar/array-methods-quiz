@@ -33,6 +33,12 @@ body {
   display: flex;
 }
 
+.instructions {
+  p {
+    margin-bottom: 20px;
+  }
+}
+
 .quiz {
   justify-content: space-evenly;
   min-height: 80vh;

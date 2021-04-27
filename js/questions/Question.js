@@ -18,8 +18,3 @@ class Question {
 }
 
 export { Question };
-
-// const output = input.reduce((obj, num) => {
-//   obj[num] = ++obj[num] || 1;
-//   return obj;
-// }, {});
