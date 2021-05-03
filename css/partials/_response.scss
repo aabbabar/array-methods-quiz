@@ -1,0 +1,20 @@
+.response {
+  @include border(2px, 10px, black);
+  font-size: 1rem;
+  padding: 5px;
+  position: relative;
+  left: 190px;
+  bottom: 50px;
+  margin-bottom: -44px;
+  display: none;
+}
+
+.response-correct {
+  border-color: $response-correct;
+  color: $response-correct;
+}
+
+.response-incorrect {
+  border-color: $response-incorrect;
+  color: $response-incorrect;
+}

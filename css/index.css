@@ -155,9 +155,9 @@ code {
 }
 
 .queried {
-  font-weight: 600;
   border: 2px solid black;
   border-radius: 10px;
+  font-weight: 600;
 }
 
 .timer-bar {
@@ -272,6 +272,28 @@ code {
   color: rgba(81, 81, 81, 0.8);
 }
 
+.response {
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 5px;
+  position: relative;
+  left: 190px;
+  bottom: 50px;
+  margin-bottom: -44px;
+  display: none;
+}
+
+.response-correct {
+  border-color: #23b503;
+  color: #23b503;
+}
+
+.response-incorrect {
+  border-color: #d75555;
+  color: #d75555;
+}
+
 button {
   border: 2px solid #a2a2a2;
   border-radius: 8px;
@@ -310,6 +332,9 @@ button:enabled:hover {
   }
   .answer-choice {
     width: 90%;
+  }
+  .response {
+    left: 140px;
   }
 }
 
